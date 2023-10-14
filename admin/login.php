@@ -4,13 +4,14 @@ require ('navbar.php');
 session_start();
 
 
-if ( isset($_POST['submit'])) {
-  $email = $_POST['txt_email'];
+if (isset($_POST['submit'])) {
+  $userName = $_POST['txt_nama'];
   $pass = $_POST['txt_pass'];
+  
   // $emailCheck = mysqli_real_escape_string($koneksi, $email);
   // $passCheck = mysqli_real_escape_string($pass, $pass);
-  if(!empty(trim($email)) && !empty(trim($pass))) {
-      $query = "SELECT * FROM users WHERE email ='$email'";
+  if(!empty(trim($userName)) && !empty(trim($pass))) {
+      $query = "SELECT * FROM users WHERE username ='$userName'";
       $result = mysqli_query($koneksi, $query);
       $num = mysqli_num_rows($result);
       
@@ -25,7 +26,7 @@ if ( isset($_POST['submit'])) {
               $level = $row['user_level'];
       }
       if ($num != 0) {
-          if ($userVal == $email && $passVal == $pass) {
+          if ($userName == $userName && $passVal == $pass) {
               header('Location: home.php');
           } else {
               
@@ -76,7 +77,7 @@ if ( isset($_POST['submit'])) {
             <!-- akhir tamoilan error -->
                 <div class="inputBox">
                     <span>Username</span>
-                    <input type="text" name="txt_email">
+                    <input type="text" name="txt_nama">
                 </div>
                 <div class="inputBox">
                     <span>Password</span>
@@ -86,7 +87,7 @@ if ( isset($_POST['submit'])) {
                   <p><a href="#">Lupa Password</a></p>
                 </div>
                 <div class="inputBox">
-                    <p>Belum punya akun? Daftar di <a href="#">sini</a></p>
+                    <p>Belum punya akun? Daftar di <a href="registrasi.php">sini</a></p>
                 </div>
                 <div class="inputBox">
                 <button type="submit" value="Login" name="submit">Login</button>

@@ -78,7 +78,7 @@ section .contentBox .formBox .inputBox span {
   font-size: 16px;
   margin-bottom: 5px;
   display: flex;
-  color: gray;
+  color: #c7c7c7;
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 1px;
@@ -86,13 +86,10 @@ section .contentBox .formBox .inputBox span {
 section .contentBox .formBox .inputBox input {
   width: 100%;
   padding: 10px 20px;
-  outline: none;
   font-weight: 400;
-  border: 1 px solid #fff;
+  border: 1 px solid #adadad;
   font-size: 16px;
   letter-spacing: 1px;
-  color: #607d8b;
-  background: transparent;
   border-radius: 14px;
 }
 section .contentBox .formBox .inputBox button {
@@ -126,10 +123,10 @@ section .contentBox .formBox .inputBox button {
 } */
 
 section .contentBox .formBox .inputBox p {
-  color: #607d8b;
+  color: #c7c7c7;
 }
 section .contentBox .formBox .inputBox p a {
-  color: #ff4584;
+  color: #52b8f2;
 }
 .alert {
   border-radius: 14px;

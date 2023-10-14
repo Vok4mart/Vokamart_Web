@@ -48,7 +48,7 @@
                 <button type="submit" value="Daftar" name="register">Daftar</button>
                 </div>
                 <div class="inputBox">
-                    <p>Belum punya akun? Daftar di <a href="#">sini</a></p>
+                    <p>Sudah punya akun? Login di <a href="login.php">sini</a></p>
                 </div>
             </form>
         </div>
