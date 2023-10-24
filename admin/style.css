@@ -1,5 +1,4 @@
 body {
-  min-height: 2000px;
   font-family: "Lexend", sans-serif;
   font-family: "Poppins", sans-serif;
 }
@@ -22,13 +21,13 @@ body {
 section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
 }
 section .imgBox {
   position: relative;
   width: 50%;
-  height: 100%;
+  height: 100vh;
 }
 
 section .imgBox img {
@@ -45,34 +44,30 @@ section .contentBox {
   height: 100%;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 section .contentBox .formBox {
   width: 50%;
 }
+section .contentBox .formBox .square {
+  color: rgb(18, 209, 34);
+  width: 100%;
+  height: 200px;
+}
 section .contentBox .formBox h2 {
   color: #e91e63;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 3rem;
   text-transform: uppercase;
-  margin-bottom: 100px;
-
-  display: inline-block;
+  margin-bottom: 80px;
+  display: flex;
   letter-spacing: 1px;
+  justify-content: center;
   text-align: center;
 }
 section .contentBox .formBox .inputBox {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .lupapassword {
-  font-size: 16px;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: end;
-  color: gray;
-  font-weight: 300;
-  font-size: 16px;
-  letter-spacing: 1px;
 }
 section .contentBox .formBox .inputBox span {
   font-size: 16px;
@@ -86,44 +81,40 @@ section .contentBox .formBox .inputBox span {
 section .contentBox .formBox .inputBox input {
   width: 100%;
   padding: 10px 20px;
+  outline: none;
   font-weight: 400;
-  border: 1 px solid #adadad;
+  border: 3px #adadad solid;
   font-size: 16px;
   letter-spacing: 1px;
+  color: #607d8b;
+  background: transparent;
   border-radius: 14px;
 }
-section .contentBox .formBox .inputBox button {
-  /* background: #ff4584;
-  color: #fff;
-  outline: none;
-  border: none;
-  font-weight: 500;
-  cursor: pointer; */
+section .contentBox .formBox .inputBox input[type="submit"] {
+  background: #fff;
+  color: rgb(235, 15, 15);
   width: 50%;
-  height: 100%;
-  padding-left: 57px;
-  padding-right: 57px;
-  padding-top: 21px;
-  padding-bottom: 21px;
-  border-radius: 20px;
-  overflow: hidden;
   border: 3px #ee5151 solid;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 50px auto;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
-  color: red;
-  background: #fff;
-  cursor: pointer;
 }
-/* section .contentBox .formBox .inputBox button span {
+section .contentBox .formBox .inputBox input[type="submit"]:hover {
+  background: #ece5e5;
+}
+section .contentBox .formBox .inputBox button span {
   color: #ee5151;
   font-size: 20px;
   font-weight: 600;
   word-wrap: break-word;
-} */
+}
 
 section .contentBox .formBox .inputBox p {
   color: #c7c7c7;
+  text-align: center;
 }
 section .contentBox .formBox .inputBox p a {
   color: #52b8f2;
@@ -152,6 +143,7 @@ section .contentBox .formBox .inputBox p a {
   section .contentBox .formBox {
     background: #fff;
     width: 100%;
+    height: 600px;
     padding: 40px;
     margin: 50px;
   }

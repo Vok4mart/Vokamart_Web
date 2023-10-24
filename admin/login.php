@@ -5,13 +5,13 @@ session_start();
 
 
 if (isset($_POST['submit'])) {
-  $userName = $_POST['txt_nama'];
+  $email = $_POST['txt_email'];
   $pass = $_POST['txt_pass'];
   
   // $emailCheck = mysqli_real_escape_string($koneksi, $email);
   // $passCheck = mysqli_real_escape_string($pass, $pass);
-  if(!empty(trim($userName)) && !empty(trim($pass))) {
-      $query = "SELECT * FROM users WHERE username ='$userName'";
+  if(!empty(trim($email)) && !empty(trim($pass))) {
+      $query = "SELECT * FROM users WHERE email ='$email'";
       $result = mysqli_query($koneksi, $query);
       $num = mysqli_num_rows($result);
       
@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
               $level = $row['user_level'];
       }
       if ($num != 0) {
-          if ($userName == $userName && $passVal == $pass) {
+          if ($userVal == $email && $passVal == $pass) {
               header('Location: home.php');
           } else {
               
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- css bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
     <!-- css styleku -->
     <link rel="stylesheet" href="style.css">
     <!-- link font -->
@@ -68,31 +68,34 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="contentBox">
         <div class="formBox">
-            <h2>Login</h2>
-            <form action="login.php" method="POST">
+           <h2>Login</h2>
+          
+           <form action="login.php" method="POST">
               <!-- membuat tampilan error -->
             <?php if (isset($_GET['error'])){ ?>
               <div class="alert alert-danger" role="alert"><?php echo $_GET['error'];?></div>
             <?php }?>
-            <!-- akhir tamoilan error -->
+            <!-- akhir tampilan error -->
                 <div class="inputBox">
-                    <span>Username</span>
-                    <input type="text" name="txt_nama">
+                    <span>Email</span>
+                    <input type="email" name="txt_email"  >
                 </div>
                 <div class="inputBox">
                     <span>Password</span>
-                    <input type="password" name="txt_pass">
+                    <input type="password" name="txt_pass" >
                 </div>
-                <div class="lupapassword">
-                  <p><a href="#">Lupa Password</a></p>
+                <div class="inputBox"style=" display: flex; justify-content: end; margin-bottom: 5px;">
+                     <p><a href="lupapassword.php">Lupa Password</a></p>
                 </div>
                 <div class="inputBox">
                     <p>Belum punya akun? Daftar di <a href="registrasi.php">sini</a></p>
                 </div>
-                <div class="inputBox">
-                <button type="submit" value="Login" name="submit">Login</button>
+                <div class="inputBox" style="display: flex; text-align: center; justify-content: center; margin-top: 20px;">
+                    <input type="submit" value="Login" name="submit">
                 </div>
             </form>
+          
+           
         </div>
     </div>
    </section>
