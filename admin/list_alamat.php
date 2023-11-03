@@ -24,7 +24,7 @@
         <input class="form-control" type="search" >
       </form>
 
-    <a href="#" class="btn btn-primary ms-auto align-self-center" style="padding: 5px 50px">Tambahkan Alamat</a>
+    <a href="tambahalamat.php" class="btn btn-primary ms-auto align-self-center" style="padding: 5px 50px">Tambahkan Alamat</a>
   </div>
 </div>
   </div>
@@ -42,15 +42,21 @@
   </div>
 </div>
   </div>
-  <div class="row-sm-1">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+
+  <!-- card 2 -->
+  <div class="row-sm-1 mb-4 ">
+  <div class="card">
+  <div class="card-body d-flex">
+    <div class="wadah">
+      <h5 class="card-title">Nama Penerima</h5>
+      <h5 class="card-title">No.HP</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
     </div>
+    <a href="#" class="btn btn-primary ms-auto align-self-center px-5">pilih</a>
   </div>
+</div>
+  </div>
+  
 </div>
 
 
