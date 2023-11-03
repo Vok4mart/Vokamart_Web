@@ -85,9 +85,42 @@ session_start();
                         <div class="inputBx" >
                             <input type="submit" value="Daftar Transaksi" name="">
                         </div>
+                        <!-- button ubah profil -->
                         <div class="inputBox " >
-                            <input type="submit" value="Ubah Profil" name="">
+                            
+                            <!-- Vertically centered modal -->
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" >Ubah profil</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form>
+                                      <div class="mb-3 inputku">
+                                        <label type="email" for="recipient-name" class="col-form-label">Email</label>
+                                        <div class=" d-flex" >
+                                        <input type="text" class="form-control" id="recipient-name">
+                                        <button type="button" class="btn btn-outline-danger">Ubah Password</button>
+                                        </div>
+                                      </div>
+                                        <div class="mb-3">
+                                          <label for="recipient-name" class="col-form-label">Username</label>
+                                          <input type="text" class="form-control inputan" id="recipient-name">
+                                        </div>
+                                    
+                                        <button type="button" class="btn btn-danger px-5 rounded-3">Simpan</button>
+                                    </form>
+                                  </div>
+                              
+                                </div>
+                              </div>
+                            </div>
                         </div>
+                        <!-- akhir button profil -->
                     </div>
                 </div>
             </form>
