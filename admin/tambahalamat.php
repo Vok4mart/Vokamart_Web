@@ -11,7 +11,8 @@ session_start();
     <title>Document</title>
    <!-- css bootstrap -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+    <!-- my style -->
+    <link rel="stylesheet" href="style.css">
   </head>
 <body>
     <!-- navbar -->
@@ -74,14 +75,14 @@ session_start();
     </div>
   </div>
   <div class="row mb-3">
-    <div class=" offset-md-2 col-md-8">
+    <div class=" offset-md-2 col-md-7">
       <label for="exampleInputEmail1" class="form-label">Alamat Lengkap & Kode Pos</label>
       <textarea class="form-control" id="alamat" rows="3" ></textarea>  
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-md-2 offset-md-9">
-      <button type="submit" class="btn btn-primary">Simpan</button>
+    <div class="col-md-2 offset-md-8">
+      <button type="submit" class="btn  btn-danger px-5 rounded-3">Simpan</button>
     </div>
   </div>
 </form>
