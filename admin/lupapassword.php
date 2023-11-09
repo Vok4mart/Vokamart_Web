@@ -1,4 +1,30 @@
+<?php
+require("navbar.php");
+require('../koneksi.php');
+session_start();
 
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['txt_email'];
+
+    // Generate OTP (One-Time Password)
+    $otp = mt_rand(100000, 999999);
+
+    // Simpan OTP di database atau sesuai kebutuhan
+    // Kirim OTP ke email pengguna
+    $subject = "Kode OTP untuk Reset Password";
+    $message = "Kode OTP Anda adalah: $otp";
+    $headers = "From: your_email@example.com";
+
+    if (mail($email, $subject, $message, $headers)) {
+        // OTP telah berhasil dikirim
+        // Redirect ke halaman yang sesuai untuk verifikasi OTP
+        header("Location: verifikasi_otp.php?email=" . $email);
+    } else {
+        echo "Gagal mengirim OTP. Silakan coba lagi.";
+    }
+}
+?>
 
 
 <!DOCTYPE html>

@@ -1,9 +1,8 @@
 <?php
-require ('../Koneksi/koneksi.php');
-
+require ('../koneksi.php');
 session_start();
 
-if (isset($_SESSION[''])) { 
+
 if (isset($_POST['submit'])) {
   $email = $_POST['txt_email'];
   $pass = $_POST['txt_pass'];
@@ -40,7 +39,6 @@ if (isset($_POST['submit'])) {
   } else {
     header('Location: login.php?error=data tidak boleh kosong');
   }
-}
 }
 ?>
 
