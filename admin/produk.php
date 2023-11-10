@@ -1,8 +1,9 @@
 <?php
+    require ('../Koneksi/koneksi.php');
+    $queryProduk = mysqli_query($koneksi, "SELECT * FROM kategori");
+    session_start();
+?>
 
-session_start();
-
-    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +93,7 @@ session_start();
         <div class="gbrempat"><img src="../images/15951115_Food-Social-Media-Banner-17 1.png" alt=""></div>
         <div class="gbrlima">
             <div class="ct1">Kategori Produk</div>
-            <!-- scrollbar Kategori -->
+
             <div class="scrollbar-ct">
               
                 <div class="kotak">
@@ -136,7 +137,6 @@ session_start();
                     <div class="ct-text">Minuman</div>
                 </div>
             </div> 
-             <!-- akhir scrollbar Kategori -->
         </div>
        <hr><hr><hr>
     </div>
@@ -146,15 +146,19 @@ session_start();
     <h2 class=" fw-bolder mb-4">Produk Terlaris Kami</h2>
     <div class="row row-cols-md-4 row-cols-2 " id="konten">
         <!-- produk 1 -->
-        <div class="col mb-5">
+        <div class="row mt-5">
+        <div class="col mb-4">
+            <?php while($data = mysqli_fetch_array($queryProduk)){  ?>
             <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
+                <img src="../images/<?php echo $data['foto']; ?>" class="card-img-top" alt="...">
+
+                
                 
            
                 <a href="#" ><div class="card-footer d-flex flex-column ">
                 <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
+                <p class="card-title fw-bold lead" ><?php echo $data['nama']; ?> </p>
+                <div class="mb-1"></div>
                     <span class="fa fa-star checked align-self-start"></span>
                     <span class="fa fa-star checked align-self-start"></span>
                     <span class="fa fa-star checked align-self-start"></span>
@@ -164,18 +168,19 @@ session_start();
                 <div class="d-flex">
                 <div>
                     <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
+                    <p class="card-title" >Rp <?php echo $data['harga']; ?></p>
                 </div>
-                    <a class="btn btn-danger ms-auto">
+                    <a href= "produkdetail.php?nama=<?php echo $data['nama']; ?>" class="btn btn-danger ms-auto">
                         <i class="bi bi-bag-fill"></i>
                     </a>
                 </div>
-                
+                <?php }  ?>
                 </div></a>
             </div>
         </div>
         <!-- produk 2 -->
-        <div class="col mb-3">
+        <div class="row mt-5">
+        <div class="col mb-4">
             <div class="card">
                 <img src="../images/image 2.png" class="card-img-top" alt="...">
                 
