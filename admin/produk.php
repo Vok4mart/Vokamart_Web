@@ -92,7 +92,7 @@ session_start();
         <div class="gbrempat"><img src="../images/15951115_Food-Social-Media-Banner-17 1.png" alt=""></div>
         <div class="gbrlima">
             <div class="ct1">Kategori Produk</div>
-
+            <!-- scrollbar Kategori -->
             <div class="scrollbar-ct">
               
                 <div class="kotak">
@@ -136,6 +136,7 @@ session_start();
                     <div class="ct-text">Minuman</div>
                 </div>
             </div> 
+             <!-- akhir scrollbar Kategori -->
         </div>
        <hr><hr><hr>
     </div>
