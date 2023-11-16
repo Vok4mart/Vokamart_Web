@@ -2,7 +2,7 @@
 $server     = "localhost";
 $username   = "root";
 $password   = "";
-$db         = "coba1";
+$db         = "vokamart";
 $koneksi    = mysqli_connect($server, $username, $password, $db);
 
 if(mysqli_connect_errno()) {

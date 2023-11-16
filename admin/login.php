@@ -1,46 +1,46 @@
 <?php
-require ('../koneksi.php');
+require('../Koneksi/koneksi.php');
+
 session_start();
 
-
 if (isset($_POST['submit'])) {
-  $email = $_POST['txt_email'];
-  $pass = $_POST['txt_pass'];
-  
-  // $emailCheck = mysqli_real_escape_string($koneksi, $email);
-  // $passCheck = mysqli_real_escape_string($pass, $pass);
-  if(!empty(trim($email)) && !empty(trim($pass))) {
-      $query = "SELECT * FROM users WHERE email ='$email'";
-      $result = mysqli_query($koneksi, $query);
-      $num = mysqli_num_rows($result);
-      
-      if($result) {
-          $row = mysqli_fetch_array($result);
-      }
-      if($row) {
-              $id = $row['id'];
-              $userVal = $row['email'];
-              $passVal = $row['password'];
-              $userName = $row['username'];
-              $level = $row['user_level'];
-      }
-      if ($num != 0) {
-          if ($userVal == $email && $passVal == $pass) {
-              header('Location: home.php');
-          } else {
-              
-              header('Location: login.php?error=Password  atau user salah');
-          }
-      } else {
-          
-          header('Location: login.php?error=user tidak ditemukan');
-          
-      }
-  } else {
-    header('Location: login.php?error=data tidak boleh kosong');
-  }
+    $email_akun = $_POST['email_akun'];
+    $password = $_POST['password'];
+
+    // Use prepared statements to prevent SQL injection
+    $query = "SELECT * FROM akun WHERE email_akun = ?";
+    $stmt = mysqli_prepare($koneksi, $query);  // Corrected $koneksi here
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $email_akun);
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result && $user = mysqli_fetch_assoc($result)) {
+            // Check if the passwords match (without hashing)
+            if ($password === $user['password']) {
+                // Set session variables
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['email_akun'] = $user['email_akun'];
+
+                // Redirect to the desired page after successful login
+                header('Location: produk.php');
+                exit();
+            } else {
+                $error_message = "Password salah.";
+            }
+        } else {
+            $error_message = "Email tidak ditemukan.";
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        $error_message = "Error in preparing the statement.";
+    }
 }
 ?>
+
 
 <html lang="en">
 <head>
@@ -115,11 +115,11 @@ if (isset($_POST['submit'])) {
             <!-- akhir tampilan error -->
                 <div class="inputBox">
                     <span>Email</span>
-                    <input type="email" name="txt_email"  >
+                    <input type="email" name="email_akun"  >
                 </div>
                 <div class="inputBox">
                     <span>Password</span>
-                    <input type="password" name="txt_pass" >
+                    <input type="password" name="password" >
                 </div>
                 <div class="inputBox"style=" display: flex; justify-content: end; margin-bottom: 5px;">
                      <p><a href="lupapassword.php">Lupa Password</a></p>

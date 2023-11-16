@@ -1,7 +1,5 @@
 <?php
-require('../koneksi.php');
-require('navbar.php');
-session_start();
+require('../Koneksi/koneksi.php');
 
 if (isset($_POST['submit'])) {
     $email = $_POST['txt_email'];
@@ -12,42 +10,22 @@ if (isset($_POST['submit'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Email tidak valid";
     } else {
-        // Periksa apakah email sudah ada dalam database
-        $query = "SELECT * FROM users WHERE email = ?";
-        $stmt = mysqli_prepare($koneksi, $query);
+        // Lakukan pendaftaran dengan prepared statement
+        $insert_query = "INSERT INTO akun (email_akun, username, password) VALUES (?, ?, ?)";
+        $insert_stmt = mysqli_prepare($koneksi, $insert_query);
 
-        if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "s", $email);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
+        if ($insert_stmt) {
+            // Password not hashed in this version
+            mysqli_stmt_bind_param($insert_stmt, "sss", $email, $username, $password);
+            $insert_result = mysqli_stmt_execute($insert_stmt);
 
-            if (mysqli_num_rows($result) > 0) {
-                echo "Email sudah terdaftar";
+            if ($insert_result) {
+                header("Location: login.php");
             } else {
-                // Password hashing
-                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-                // Lakukan pendaftaran dengan prepared statement
-                $insert_query = "INSERT INTO users (email, username, password) VALUES (?, ?, ?)";
-                $insert_stmt = mysqli_prepare($koneksi, $insert_query);
-
-                if ($insert_stmt) {
-                    mysqli_stmt_bind_param($insert_stmt, "sss", $email, $username, $hashed_password);
-                    $insert_result = mysqli_stmt_execute($insert_stmt);
-
-                    if ($insert_result) {
-                        header("Location: login.php");
-                    } else {
-                        echo "Registrasi gagal. Silakan coba lagi.";
-                    }
-
-                    mysqli_stmt_close($insert_stmt);
-                } else {
-                    echo "Terjadi kesalahan. Silakan coba lagi.";
-                }
+                echo "Registrasi gagal. Silakan coba lagi.";
             }
 
-            mysqli_stmt_close($stmt);
+            mysqli_stmt_close($insert_stmt);
         } else {
             echo "Terjadi kesalahan. Silakan coba lagi.";
         }
