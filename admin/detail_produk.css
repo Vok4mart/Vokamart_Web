@@ -1,0 +1,243 @@
+body {
+  font-family: "Lexend", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.card {
+  margin-top: 20px;
+  border: none;
+}
+.card .left-card-img .img-single {
+  padding: 0;
+  min-width: 200px;
+  max-width: 504px;
+  max-height: 504px;
+}
+.card .left-card-img {
+  padding: 10px;
+  margin-left: 50px;
+}
+
+.card .left-card-img .small-img-row {
+  display: flex;
+  overflow-x: auto; /* Menambahkan overflow-x agar dapat digeser horizontal */
+  white-space: nowrap; /* Menghindari pemutusan baris */
+  margin-top: 5px;
+}
+
+.card .left-card-img .small-img-row::-webkit-scrollbar {
+  display: none;
+}
+.small-img-col {
+  flex-shrink: 0; /* Mencegah perubahan ukuran gambar saat digeser */
+  margin-right: 10px;
+  border: 3px #fdefef solid;
+  border-radius: 5px;
+}
+.left-card-img .small-img-row .small-img-col img {
+  border-radius: 6px;
+  max-width: 76px;
+  max-height: 76px;
+}
+
+.scroll-warna-row {
+  display: flex;
+  overflow-x: auto; /* Menambahkan overflow-x agar dapat digeser horizontal */
+  white-space: nowrap; /* Menghindari pemutusan baris */
+  margin-top: 5px;
+}
+.scroll-warna-row::-webkit-scrollbar {
+  display: none;
+}
+.scroll-warna-col {
+  flex-shrink: 0; /* Mencegah perubahan ukuran gambar saat digeser */
+  width: 108px;
+  height: 43px;
+  padding-right: 20px;
+  margin-right: 10px;
+  border-radius: 9px;
+  border: 2px #ee5151 solid;
+}
+.right-card-deskripsi {
+  padding: 0 20px 20px 60px;
+}
+.row .deskripsi-produk {
+  overflow-y: auto; /* Menambahkan overflow-x agar dapat digeser horizontal */
+  max-height: 115px;
+  margin-top: 5px;
+  color: #aaaaaa;
+  font-size: 17px;
+  font-family: Lexend;
+  font-weight: 300;
+  line-height: 25.25px;
+  word-wrap: break-word;
+}
+.deskripsi-judul-produk {
+  color: #494949;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.card .left-card-jumlah {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.title {
+  color: #656565;
+  font-size: 35px;
+  font-family: Lexend;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.title-deskripsi-harga {
+  padding: 0 0 2vh 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.text-warna-ukuran {
+  color: #494949;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.angka-keranjang {
+  background-color: #fdefef;
+  padding: 1px 20px;
+  font-size: 15px;
+  width: 94px;
+  height: 26px;
+}
+
+a {
+  color: black;
+  font-size: 15px;
+}
+.bi-trash {
+  color: red;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+.card .right-card-ulasan {
+  margin-top: 20px;
+  padding: 10px 20px 20px 60px;
+}
+.main {
+  width: 100%; /* Atau tentukan lebar yang diinginkan */
+  height: 100px;
+
+  background: #fdefef;
+  border-radius: 24px;
+  margin-top: 10px;
+}
+.box-detail-ulasan {
+  overflow-y: auto;
+  max-height: 100px;
+}
+.img-rounded-and-smaller {
+  border-radius: 50%; /* Membuat gambar menjadi bulat */
+  width: 65px; /* Mengatur lebar gambar sesuai kebutuhan */
+  height: 65px; /* Mengatur tinggi gambar sesuai kebutuhan */
+}
+.text-jumlah {
+  color: #494949;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.left-card-jumlah p {
+  color: #aaaaaa;
+  font-size: 17px;
+  font-family: Lexend;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+.right-card-ulasan .row p {
+  color: #494949;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.btn-masukan-keranjang input[type="submit"] {
+  background-color: #ee5151;
+  color: rgb(248, 243, 243);
+  width: 100%;
+  border: 3px #ee5151 solid;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-masukan-keranjang input {
+  padding: 10px 0px;
+}
+.btn-beli-sekarang input[type="submit"] {
+  width: 100%;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-beli-sekarang input {
+  padding: 10px 10px;
+}
+.checked {
+  color: orange;
+  margin-top: 2px;
+  margin-left: 4px;
+  margin-right: 20px;
+}
+.ulasan-title {
+  color: #494949;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.text-detail-ulasan {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: #aaaaaa;
+  font-size: 17px;
+  font-weight: 300;
+  word-wrap: break-word;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .card .left-card-img .img-single {
+    margin-left: 10px;
+  }
+  .card .left-card-img {
+    margin-left: 10px;
+    padding: 10px;
+    width: 90%;
+  }
+  .card .left-card-jumlah {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .right-card-deskripsi {
+    padding: 0 20px 20px 20px;
+  }
+  .card .right-card-ulasan {
+    padding: 10px 20px 20px 20px;
+  }
+  .btn-masukan-keranjang {
+    margin-bottom: 10px;
+  }
+}
