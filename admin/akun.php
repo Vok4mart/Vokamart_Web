@@ -43,7 +43,7 @@ session_start();
           <a class="nav-link" href="akun.php">Akun</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Keranjang</a>
+          <a class="nav-link" href="keranjang.php">Keranjang</a>
         </li>
       </ul>
     </div>
@@ -75,7 +75,7 @@ session_start();
                         <p>nama username</p>
                     </div>
                     <div class="inputBox">
-                        <span>Alamat <a href="#">ubah</a>
+                        <span>Alamat <a href="list_alamat.php">ubah</a>
                         </span>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
                     </div>
@@ -107,7 +107,7 @@ session_start();
                                         <label type="email" for="recipient-name" class="col-form-label">Email</label>
                                         <div class=" d-flex" >
                                         <input type="text" class="form-control" id="recipient-name">
-                                        <button type="button" class="btn btn-outline-danger">Ubah Password</button>
+                                        <a href="lupapassword.php"><button type="button" class="btn btn-outline-danger">Ubah Password</button></a>
                                         </div>
                                       </div>
                                         <div class="mb-3">
