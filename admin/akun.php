@@ -68,16 +68,16 @@ session_start();
                 <div class="form-akun">
                     <div class="inputBox">
                         <span>Email</span>
-                        <p>nama email</p>
+                        <p><?php echo $akun['email_akun']; ?></p>
                     </div>
                     <div class="inputBox">
                         <span>Username</span>
-                        <p>nama username</p>
+                        <p><?php echo $akun['username']; ?></p>
                     </div>
                     <div class="inputBox">
                         <span>Alamat <a href="#">ubah</a>
                         </span>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+                        <p><?php echo $alamat_user['alamat_lengkap']; ?></p>
                     </div>
                     <div class="inputBox">
                         <span>No.Hp</span>

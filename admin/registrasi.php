@@ -15,23 +15,31 @@ if (isset($_POST['submit'])) {
         $insert_stmt = mysqli_prepare($koneksi, $insert_query);
 
         if ($insert_stmt) {
-            // Password not hashed in this version
             mysqli_stmt_bind_param($insert_stmt, "sss", $email, $username, $password);
             $insert_result = mysqli_stmt_execute($insert_stmt);
 
+            $koneksi = new mysqli($host, $username, $password, $database);
+
+        if ($koneksi->connect_error) {
+            die("Connection failed: " . $koneksi->connect_error);
+            }
+
+
             if ($insert_result) {
                 header("Location: login.php");
+                exit();
             } else {
-                echo "Registrasi gagal. Silakan coba lagi.";
+                echo "Registrasi gagal. Silakan coba lagi atau hubungi administrator.";
             }
 
             mysqli_stmt_close($insert_stmt);
         } else {
-            echo "Terjadi kesalahan. Silakan coba lagi.";
+            echo "Terjadi kesalahan. Silakan coba lagi atau hubungi administrator.";
         }
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
