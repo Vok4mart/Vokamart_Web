@@ -1,8 +1,15 @@
 <?php
+require('../Koneksi/koneksi.php');
+$query = "SELECT * FROM akun";
+$result = mysqli_query($koneksi, $query);
+$data_akun = array(); // Ganti $data_produk menjadi $data_akun
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $data_akun[] = $row;
+}
 
 session_start();
-
-    ?>
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,37 +64,39 @@ session_start();
   <div class="row">
     <div class="offset-md-2 col-md-3 col-img">
     <div class="foto">
-                <img src="../images/Frame 16.png" alt="" >
-               
+                <?php foreach ($data_akun as $akun) : ?>
+                <img src="../images/<?php echo $akun['foto_profil']; ?>" alt="" >
+                <?php endforeach; ?>
             </div>
+            
     </div>
     <div class="col">
       <div class="card-body">
       <div class="boxs">
       <form action="#" method="POST">
-                <div class="form-akun">
-                    <div class="inputBox">
-                        <span>Email</span>
-                        <p><?php echo $akun['email_akun']; ?></p>
+      <div class="form-akun">
+            <?php foreach ($data_akun as $akun) : ?>
+                <div class="inputBox">
+                    <span>Email</span>
+                    <p><?php echo $akun['email_akun']; ?></p>
+                </div>
+                <div class="inputBox">
+                    <span>Username</span>
+                    <p><?php echo $akun['username']; ?></p>
+                </div>
+                <div class="inputBox">
+                    <span>Alamat <a href="#">ubah</a></span>
+                    <p><?php echo $akun['alamat_lengkap']; ?></p>
+                </div>
+                <div class="inputBox">
+                    <span>No.Hp</span>
+                    <p><?php echo $akun['no_hp']; ?></p>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <div class="inputBx">
+                        <input type="submit" value="Daftar Transaksi" name="">
                     </div>
-                    <div class="inputBox">
-                        <span>Username</span>
-                        <p><?php echo $akun['username']; ?></p>
-                    </div>
-                    <div class="inputBox">
-                        <span>Alamat <a href="#">ubah</a>
-                        </span>
-                        <p><?php echo $alamat_user['alamat_lengkap']; ?></p>
-                    </div>
-                    <div class="inputBox">
-                        <span>No.Hp</span>
-                        <p>no hp</p>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <div class="inputBx" >
-                            <input type="submit" value="Daftar Transaksi" name="">
-                        </div>
                         <!-- button ubah profil -->
                         <div class="inputBox " >
                             
@@ -109,6 +118,7 @@ session_start();
                                         <input type="text" class="form-control" id="recipient-name">
                                         <button type="button" class="btn btn-outline-danger">Ubah Password</button>
                                         </div>
+                                        <?php endforeach; ?>
                                       </div>
                                         <div class="mb-3">
                                           <label for="recipient-name" class="col-form-label">Username</label>
@@ -118,7 +128,6 @@ session_start();
                                         <button type="button" class="btn btn-danger px-5 rounded-3">Simpan</button>
                                     </form>
                                   </div>
-                              
                                 </div>
                               </div>
                             </div>

@@ -2,9 +2,9 @@
 require('../Koneksi/koneksi.php');
 
 if (isset($_POST['submit'])) {
-    $email = $_POST['txt_email'];
-    $username = $_POST['txt_username'];
-    $password = $_POST['txt_pass'];
+    $email = $_POST['email_akun'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     // Validasi email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -105,15 +105,15 @@ if (isset($_POST['submit'])) {
             <form action="registrasi.php" method="POST">
                 <div class="inputBox">
                     <span>Email</span>
-                    <input type="text" name="txt_email">
+                    <input type="text" name="email_akun">
                 </div>
                 <div class="inputBox">
                     <span>Username</span>
-                    <input type="text" name="txt_username">
+                    <input type="text" name="username">
                 </div>
                 <div class="inputBox">
                     <span>Password</span>
-                    <input type="password" name="txt_pass">
+                    <input type="password" name="password">
                 </div>
                 <div class="inputBox" style="display: flex; text-align: center; justify-content: center; margin-top: 50px;">
                     <input type="submit" value="Daftar" name="submit">
