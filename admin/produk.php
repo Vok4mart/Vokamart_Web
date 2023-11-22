@@ -155,7 +155,7 @@
                 
                 
            
-                <a href="#" ><div class="card-footer d-flex flex-column ">
+                <a href="detail_produk.php" ><div class="card-footer d-flex flex-column ">
                 <p class="card-text small mb-0" >Kategori Barang</p>
                 <p class="card-title fw-bold lead" ><?php echo $data['nama']; ?> </p>
                 <div class="mb-1"></div>
@@ -175,7 +175,8 @@
                     </a>
                 </div>
                 <?php }  ?>
-                </div></a>
+            
+                </a>
             </div>
         </div>
         <!-- produk 2 -->
