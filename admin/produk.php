@@ -1,8 +1,8 @@
 <?php
-    require ('../Koneksi/koneksi.php');
-    $queryProduk = mysqli_query($koneksi, "SELECT * FROM kategori");
-    session_start();
-?>
+
+session_start();
+
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Produk Kami</title>
-    <link rel="stylesheet" href="../css/produk.css">
+    <link rel="stylesheet" href="styleproduk.css">
     <!-- css bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
@@ -86,6 +86,9 @@
   </div>
     <!-- filter -->
     <div class="container justify-content-center">
+        
+
+
         <div class="gbrsatu"><img src="../images/20142456_Black-Friday-Facebook-Cover-Banner-08 1.png" alt=""></div>
         <div class="gbrdua"><img src="../images/9884272_104 1.png" alt=""></div>
         <div class="gbrtiga"><img src="../images/22753609_Furniture-Facebook-Cover-Banner-21 1.png" alt=""></div>
@@ -138,744 +141,366 @@
             </div> 
              <!-- akhir scrollbar Kategori -->
         </div>
-       <hr><hr><hr>
+    
+
+
+        <!-- card produk terlaris  -->
+        <div class="wadah ">
+        <h2 class=" ">Produk Terlaris Kami</h2>
+         <div class="row row-cols-md-4 row-cols-2 " id="konten">
+        
+                <?php
+                // Konfigurasi koneksi database
+                $server   = "localhost";
+                $username = "root";
+                $password = "";
+                $db       = "vokamart";
+                $koneksi  = mysqli_connect($server, $username, $password, $db);
+
+                if (mysqli_connect_errno()) {
+                    echo "Koneksi Gagal: " . mysqli_connect_error();
+                    exit();
+                }
+
+                // Query untuk mengambil data produk
+                $query = "SELECT * FROM produk LIMIT 8";
+                $result = mysqli_query($koneksi, $query);
+
+                // Loop untuk setiap produk
+                while ($produk = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <!-- Produk -->
+                    <div class="col mb-3">
+                        <div class="card">
+                            <img src=" ../images/image 2.png <?php echo $produk['gbr_produk']; ?>" class="card-img-top" alt="...">
+                            <a href="detail_produk.php?id=<?php echo $produk['id_produk']; ?>">
+                                <div class="card-footer d-flex flex-column">
+                                    <p class="card-text small mb-0"><?php echo $produk['id_kategori']; ?></p>
+                                    <p class="card-title fw-bold lead"><?php echo $produk['Nama_produk']; ?></p>
+                                    <div class="mb-1">
+                                        <!-- Rating stars -->
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <p class="card-text mb-0">Harga</p>
+                                            <p class="card-title"><?php echo $produk['Harga_produk']; ?></p>
+                                        </div>
+                                        <a class="btn btn-danger ms-auto" href="keranjang.php?id=">
+                                            <i class="bi bi-bag-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+         </div>
+        </div>
+
+                <!-- card produk Elektronika -->
+        <!-- card produk 2 -->
+        <div class="wadah2">
+            <h2 class=" ">Elektronika</h2>
+            <div class="row row-cols-md-4 row-cols-2 " id="konten">
+                <!-- produk 1 -->
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+            
+
+
+            </div>
+        </div>
+  
+
+
+          <!-- card produk 3 -->
+        <div class="wadah3">
+            <h2 class=" fw-bolder mb-4">Fashion</h2>
+            <div class="row row-cols-md-4 row-cols-2 " id="konten">
+                <!-- produk 1 -->
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 2 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 3 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 4 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 5 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 6 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 7 -->
+                <div class="col mb-3">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+                <!-- produk 8 -->
+                <div class="col mb-5">
+                    <div class="card">
+                        <img src="../images/image 2.png" class="card-img-top" alt="...">
+                        
+                
+                        <a href="#" ><div class="card-footer d-flex flex-column ">
+                        <p class="card-text small mb-0" >Kategori Barang</p>
+                        <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
+                        <div class="mb-1">
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star checked align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                            <span class="fa fa-star align-self-start"></span>
+                        </div>
+                        <div class="d-flex">
+                        <div>
+                            <p class="card-text mb-0">Harga</p>
+                            <p class="card-title" >$4000</p>
+                        </div>
+                            <a class="btn btn-danger ms-auto">
+                                <i class="bi bi-bag-fill"></i>
+                            </a>
+                        </div>
+                        
+
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
    
 
-    <!-- card produk 1 -->
-    <h2 class=" fw-bolder mb-4">Produk Terlaris Kami</h2>
-    <div class="row row-cols-md-4 row-cols-2 " id="konten">
-        <!-- produk 1 -->
-        <div class="col mb-5"> <?php while($data = mysqli_fetch_array($queryProduk)){  ?>
-            <div class="card">
-                <img src="../images/<?php echo $data['foto']; ?>" class="card-img-top" alt="...">
-                
-           
-                <a href="detail_produk.php" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" ><?php echo $data['nama']; ?>  </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >Rp <?php echo $data['harga']; ?></p>
-                </div>
-                    <a class="btn btn-danger ms-auto" href="keranjang.php">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                <?php }  ?>
-                </div>
-                </a>
-            </div>
-        </div>
-        <!-- produk 2 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
 
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 3 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
 
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 4 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
+ <!-- card produk 1 -->
+ 
 
-                </div></a>
-            </div>
-        </div>
-          <!-- produk 5 -->
-          <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
+    
 
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 6 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
 
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 7 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 8 -->
-        <div class="col mb-5">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- card produk 2 -->
-    <h2 class=" fw-bolder mb-4">Elektronika</h2>
-    <div class="row row-cols-md-4 row-cols-2 " id="konten">
-        <!-- produk 1 -->
-        <div class="col mb-4">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 2 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 3 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 4 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-          <!-- produk 5 -->
-          <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 6 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 7 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 8 -->
-        <div class="col mb-5">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- card produk 3 -->
-    <h2 class=" fw-bolder mb-4">Fashion</h2>
-    <div class="row row-cols-md-4 row-cols-2 " id="konten">
-        <!-- produk 1 -->
-        <div class="col mb-4">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 2 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 3 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 4 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-          <!-- produk 5 -->
-          <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 6 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 7 -->
-        <div class="col mb-3">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-        <!-- produk 8 -->
-        <div class="col mb-5">
-            <div class="card">
-                <img src="../images/image 2.png" class="card-img-top" alt="...">
-                
-           
-                <a href="#" ><div class="card-footer d-flex flex-column ">
-                <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" >Nama Barang Yang Ditampilkan </p>
-                <div class="mb-1">
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star checked align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                    <span class="fa fa-star align-self-start"></span>
-                </div>
-                <div class="d-flex">
-                <div>
-                    <p class="card-text mb-0">Harga</p>
-                    <p class="card-title" >$4000</p>
-                </div>
-                    <a class="btn btn-danger ms-auto">
-                        <i class="bi bi-bag-fill"></i>
-                    </a>
-                </div>
-                
-
-                </div></a>
-            </div>
-        </div>
-    </div>
+  
 
 
 
