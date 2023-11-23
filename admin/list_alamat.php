@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Poppins:ital,wght@0,100;0,300;0,500;0,900;1,100&display=swap" rel="stylesheet">
     <!-- my style  -->
-    <link rel="stylesheet" href="list_alamat.css">
+    <link rel="stylesheet" href="../css/list_alamat.css">
     <title>Document</title>
 </head>
 <body>

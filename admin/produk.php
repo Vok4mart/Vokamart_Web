@@ -4,7 +4,6 @@
     session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Produk Kami</title>
-    <link rel="stylesheet" href="styleproduk.css">
+    <link rel="stylesheet" href="../css/produk.css">
     <!-- css bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
@@ -54,7 +53,7 @@
           <a class="nav-link" href="akun.php">Akun</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Keranjang</a>
+          <a class="nav-link" href="keranjang.php">Keranjang</a>
         </li>
       </ul>
     </div>
@@ -93,7 +92,7 @@
         <div class="gbrempat"><img src="../images/15951115_Food-Social-Media-Banner-17 1.png" alt=""></div>
         <div class="gbrlima">
             <div class="ct1">Kategori Produk</div>
-
+            <!-- scrollbar Kategori -->
             <div class="scrollbar-ct">
               
                 <div class="kotak">
@@ -137,6 +136,7 @@
                     <div class="ct-text">Minuman</div>
                 </div>
             </div> 
+             <!-- akhir scrollbar Kategori -->
         </div>
        <hr><hr><hr>
     </div>
@@ -146,19 +146,15 @@
     <h2 class=" fw-bolder mb-4">Produk Terlaris Kami</h2>
     <div class="row row-cols-md-4 row-cols-2 " id="konten">
         <!-- produk 1 -->
-        <div class="row mt-5">
-        <div class="col mb-4">
-            <?php while($data = mysqli_fetch_array($queryProduk)){  ?>
+        <div class="col mb-5"> <?php while($data = mysqli_fetch_array($queryProduk)){  ?>
             <div class="card">
                 <img src="../images/<?php echo $data['foto']; ?>" class="card-img-top" alt="...">
-
-                
                 
            
                 <a href="detail_produk.php" ><div class="card-footer d-flex flex-column ">
                 <p class="card-text small mb-0" >Kategori Barang</p>
-                <p class="card-title fw-bold lead" ><?php echo $data['nama']; ?> </p>
-                <div class="mb-1"></div>
+                <p class="card-title fw-bold lead" ><?php echo $data['nama']; ?>  </p>
+                <div class="mb-1">
                     <span class="fa fa-star checked align-self-start"></span>
                     <span class="fa fa-star checked align-self-start"></span>
                     <span class="fa fa-star checked align-self-start"></span>
@@ -170,18 +166,17 @@
                     <p class="card-text mb-0">Harga</p>
                     <p class="card-title" >Rp <?php echo $data['harga']; ?></p>
                 </div>
-                    <a href= "produkdetail.php?nama=<?php echo $data['nama']; ?>" class="btn btn-danger ms-auto">
+                    <a class="btn btn-danger ms-auto" href="keranjang.php">
                         <i class="bi bi-bag-fill"></i>
                     </a>
                 </div>
                 <?php }  ?>
-            
+                </div>
                 </a>
             </div>
         </div>
         <!-- produk 2 -->
-        <div class="row mt-5">
-        <div class="col mb-4">
+        <div class="col mb-3">
             <div class="card">
                 <img src="../images/image 2.png" class="card-img-top" alt="...">
                 
