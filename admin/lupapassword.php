@@ -1,6 +1,5 @@
 <?php
-require("navbar.php");
-require('../koneksi.php');
+require('../Koneksi/koneksi.php');
 session_start();
 
 

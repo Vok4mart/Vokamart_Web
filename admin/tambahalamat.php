@@ -1,8 +1,37 @@
 <?php
-
+require('../Koneksi/koneksi.php');
 session_start();
 
-    ?>
+// Periksa koneksi
+if ($koneksi->connect_error) {
+    die("Koneksi gagal: " . $koneksi->connect_error);
+}
+
+// Periksa apakah form telah dikirim
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Tangkap data dari formulir HTML
+    $nama_penerima = $_POST['nama_penerima'];
+    $no_hp = $_POST['no_hp'];
+    $kota_kecamatan = $_POST['kota_kecamatan'];
+    $alamat_lengkap = $_POST['alamat_lengkap'];
+
+    // Ambil ID akun dari sesi
+    $id_akun = $_SESSION['id_akun'];
+
+    // Query untuk menambahkan alamat baru
+    $query = "INSERT INTO alamat_user (id_akun, nama_Penerima, no_hp, kota_Kecamatan, alamat_lengkap) VALUES ('$id_akun', '$nama_Penerima', '$no_hp', '$kota_Kecamatan', '$alamat_lengkap')";
+
+    if ($koneksi->query($query) === TRUE) {
+        echo "Alamat berhasil ditambahkan.";
+    } else {
+        echo "Error: " . $query . "<br>" . $koneksi->error;
+    }
+}
+
+// Tutup koneksi
+$koneksi->close();
+?>
+
 
 <html lang="en">
 <head>
@@ -64,19 +93,26 @@ session_start();
   <div class="row mb-3">
     <div class=" offset-md-2 col-md-3">
       <label for="exampleInputEmail1" class="form-label">Nama Penerima</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1">
     </div>
   </div>
   <div class="row mb-3">
-    <div class=" offset-md-2 col-md-2">
-      <label for="exampleInputEmail1" class="form-label">No.HP</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="offset-md-2 col-md-2">
+        <label for="no_hp" class="form-label">No.HP</label>
+        <input type="text" class="form-control" id="no_hp" name="no_hp" oninput="validateNumber(this)">
     </div>
-  </div>
+</div>
+
+<script>
+function validateNumber(input) {
+    // Hapus karakter non-angka dari nilai input
+    input.value = input.value.replace(/\D/g, '');
+}
+</script>
   <div class="row mb-3">
     <div class=" offset-md-2 col-md-6">
       <label for="exampleInputEmail1" class="form-label">Kota & Kecamatan</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="text" class="form-control" id="exampleInputEmail1">
     </div>
   </div>
   <div class="row mb-3">

@@ -157,25 +157,20 @@
             <div class="col mb-4">
                 <?php foreach ($data_produk as $produk) : ?>
                     <div class="card">
-                        <img src="../images/<?php echo $produk['foto']; ?>" class="card-img-top" alt="...">
+                        <img src="../images/<?php echo $produk['gbr_produk']; ?>" class="card-img-top" alt="...">
 
                         <a href="#">
                             <div class="card-footer d-flex flex-column">
                                 <p class="card-text small mb-0">Kategori Barang</p>
                                 <p class="card-title fw-bold lead"><?php echo $produk['Nama_produk']; ?> </p>
                                 <div class="mb-1"></div>
-                                <span class="fa fa-star checked align-self-start"></span>
-                                <span class="fa fa-star checked align-self-start"></span>
-                                <span class="fa fa-star checked align-self-start"></span>
-                                <span class="fa fa-star align-self-start"></span>
-                                <span class="fa fa-star align-self-start"></span>
                             </div>
                             <div class="d-flex">
                                 <div>
                                     <p class="card-text mb-0">Harga</p>
                                     <p class="card-title">Rp <?php echo $produk['Harga_produk']; ?></p>
                                 </div>
-                                <a href="produkdetail.php?nama=<?php echo $produk['nama']; ?>" class="btn btn-danger ms-auto">
+                                <a href="produkdetail .php?nama=" class="btn btn-danger ms-auto">
                                     <i class="bi bi-bag-fill"></i>
                                 </a>
                             </div>

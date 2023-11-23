@@ -85,7 +85,7 @@ session_start();
                     <p><?php echo $akun['username']; ?></p>
                 </div>
                 <div class="inputBox">
-                    <span>Alamat <a href="#">ubah</a></span>
+                    <span>Alamat <a href="tambahalamat.php">Ubah</a></span>
                     <p><?php echo $akun['alamat_lengkap']; ?></p>
                 </div>
                 <div class="inputBox">
