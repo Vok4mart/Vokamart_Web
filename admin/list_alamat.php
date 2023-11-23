@@ -10,78 +10,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Poppins:ital,wght@0,100;0,300;0,500;0,900;1,100&display=swap" rel="stylesheet">
     <!-- my style  -->
-    <link rel="stylesheet" href="list_alamat.css">
+    <link rel="stylesheet" href="../css/list_alamat.css">
     <title>Document</title>
 </head>
 <body>
+        <!-- navbar -->
+<nav class="navbar navbar-expand-lg  mx-4">
+<div class="container-fluid">
+    <a class="navbar-brand" href="home.php">
+      <img src="" alt="vokamart">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto"> <!-- Menggunakan ms-auto untuk meratakan ke kanan -->
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="produk.php">Produk Kami</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="akun.php">Akun</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="keranjang.php">Keranjang</a>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+<!-- akhir navbar -->
+
   <!-- list alamat -->
 <div class="container">
-<!-- seach bar -->
-<div class="row-sm-1  ">
-  <div class="card no-border">
-  <div class="card-body card-search-button d-flex">
-    <form class=" form-search d-flex" role="search">
-      <button type="submit">Cari</button>
-          <input class="form-control" type="search" >
-    </form>
+  <!-- seach bar -->
+  <div class="row-sm-1  ">
+      <div class="card-body card-search-button d-flex flex-wrap">
+        <form class=" form-search d-flex" role="search">
+          <button type="submit">Cari</button>
+              <input class="form-control" type="search" >
+        </form>
 
-      <a href="tambahalamat.php" class="btn btn-tambah-alamat btn-danger ms-auto align-self-center" style="padding: 5px 50px">Tambahkan Alamat</a>
+          <a href="tambahalamat.php" class="btn btn-tambah-alamat btn-danger ms-auto align-self-center" style="padding: 5px 50px">Tambahkan Alamat</a>
+      </div>
+    
   </div>
-</div>
-  </div>
-    <!-- search bar -->
-    <!-- card 1 -->
+      <!-- search bar -->
+      <!-- card 1 -->
   <div class="row-sm-1 mb-4 ">
-  <div class="card">
-  <div class="card-body d-flex card-border" id="card1">
-    <div class="wadah">
-      <h5 class="card-title">Nama Penerima</h5>
-      <h5 class="card-title">No.HP</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
+    <div class="card">
+      <div class="card-body d-flex flex-wrap card-border" id="card1">
+        <div class="wadah">
+          <h5 class="card-title">Nama Penerima</h5>
+          <h5 class="card-title">No.HP</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
+        </div>
+        <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card1'))">pilih</button>
+      </div>
     </div>
-    <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card1'))">pilih</button>
-  </div>
-</div>
   </div>
 
-  <!-- card 2 -->
+    <!-- card 2 -->
   <div class="row-sm-1 mb-4 ">
-  <div class="card">
-  <div class="card-body d-flex card-border" id="card2">
-    <div class="wadah">
-      <h5 class="card-title">Nama Penerima</h5>
-      <h5 class="card-title">No.HP</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
+    <div class="card">
+      <div class="card-body d-flex flex-wrap card-border" id="card1">
+        <div class="wadah">
+          <h5 class="card-title">Nama Penerima</h5>
+          <h5 class="card-title">No.HP</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
+        </div>
+        <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card1'))">pilih</button>
+      </div>
     </div>
-    <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card2'))">pilih</button>
-  </div>
-</div>
-  </div>
-  
-  <div class="row-sm-1 mb-4 ">
-  <div class="card">
-  <div class="card-body d-flex card-border" id="card2">
-    <div class="wadah">
-      <h5 class="card-title">Nama Penerima</h5>
-      <h5 class="card-title">No.HP</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
-    </div>
-    <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card2'))">pilih</button>
-  </div>
-</div>
-  </div>
-  
-  <div class="row-sm-1 mb-4 ">
-  <div class="card">
-  <div class="card-body d-flex card-border" id="card2">
-    <div class="wadah">
-      <h5 class="card-title">Nama Penerima</h5>
-      <h5 class="card-title">No.HP</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas nostrum iure?</p>
-    </div>
-    <button class="btn btn-danger ms-auto align-self-center px-5" onclick="changeCardColor(document.getElementById('card2'))">pilih</button>
-  </div>
-</div>
   </div>
   
 </div>

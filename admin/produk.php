@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Produk Kami</title>
-    <link rel="stylesheet" href="styleproduk.css">
+    <link rel="stylesheet" href="../css/produk.css">
     <!-- css bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
@@ -242,8 +242,8 @@ session_start();
   
 
 
-          <!-- card produk 3 -->
-        <div class="wadah3">
+          <!-- card produk 3  Fashion-->
+        <div class="wadah3 d-flex flex-wrap">
             <h2 class=" fw-bolder mb-4">Fashion</h2>
             <div class="row row-cols-md-4 row-cols-2 " id="konten">
                 <!-- produk 1 -->
