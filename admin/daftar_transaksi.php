@@ -66,7 +66,7 @@
   </div>
    <!-- search bar -->
 
-    <!-- card 1 -->
+    <!-- card barang 1 -->
   <div class="row-sm-1 mb-4 ">
     <div class="card">
       <div class="card-body d-flex flex-wrap card-border">
@@ -77,20 +77,45 @@
             <span class="card-text">Banyak Barang</span>
             <span class="card-text mb-4">Harga</span>
         </div>
-        <div class="button  d-flex align-self-end justify-content-end ms-auto flex-wrap">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-danger mx-3 px-5 col-12 col-md-auto mb-2" >
-              Ulas
-            </button>
+        <!-- button ulas dan button detail Transaksi -->
+        <div class="button  d-flex align-self-end justify-content-end ms-auto flex-wrap" >
+       
+
+              <!-- Button modal ulasan-->
+                          <button type="button" class="btn btn-outline-danger  px-5 col-12 col-md-auto mb-2 mb-md-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Ulas
+              </button>
+
+              <!-- Modal ulasan -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Ulasan</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <span>ulas pengalamanmu yuk!</span>
+                      <textarea name="" id=""  placeholder="Bagaimana kualitas produk?" ></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <form action="submit">
+                      <button type="button" class="btn btn-danger px-5">Kirim</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger col-12 col-md-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+            <!-- Button modal detail Transaksi -->
+            <button type="button" class="btn btn-danger mx-md-3 col-12 col-md-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Detail Transaksi
             </button>
 
-            <!-- Modal -->
+            <!-- Modal Transaksi-->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -100,8 +125,8 @@
                   </div>
 
                   <div class="modal-body d-flex " >
-                    <div class="pembungkus">
-                      <div class="scrollbar-card1">
+                    <div class="pembungkus "  >
+                      <div class="scrollbar-card1  ">
                         <!-- card checkout 1 --> 
                         <div class="row main align-items-center card1 "  >
                             <div class=" col-auto ">
@@ -138,7 +163,7 @@
                         <!-- akhir card keranjang 1 -->  
                         
                       </div>
-                      <div class="detail-deskripsi ">
+                      <div class="detail-deskripsi">
                         <div class="pembayaran">
                           <span>Metode</span>
                           <span>subtotal</span>
@@ -152,12 +177,9 @@
                         </div>
                       </div>
                     </div>
-                  <button class="align-self-start " >simpan</button> 
-                  </div>
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <div class="button-container">
+                      <a href="daftar_transaksi.php" class="align-self-start btn btn-danger" type="btn btn-danger" >Selesaikan</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -168,6 +190,12 @@
       </div>
     </div>
   </div>
+
+
+  <!-- cardnya bisa banyak  -->
+
+
+
  
   
 

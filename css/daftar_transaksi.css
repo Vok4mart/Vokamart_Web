@@ -2,6 +2,7 @@ body {
   font-family: "Lexend", sans-serif;
   font-family: "Poppins", sans-serif;
 }
+
 /* Menghapus border pada card */
 .container {
   padding: 80px;
@@ -63,21 +64,21 @@ body {
 }
 .nama-barang {
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Lexend;
   font-weight: 500;
   word-wrap: break-word;
 }
-.text-produk {
+.scrollbar-card1 .text-produk {
   color: #aaaaaa;
-  font-size: 18px;
+  font-size: 13px;
   font-family: Lexend;
   font-weight: 300;
   word-wrap: break-word;
 }
 .scrollbar-card1 .harga-produk {
   color: black;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Lexend;
   font-weight: 500;
   word-wrap: break-word;
@@ -99,6 +100,12 @@ body {
   font-family: Lexend;
   font-weight: 700;
 }
+.pembungkus {
+  padding-right: 50px;
+  padding-left: 50px;
+  border-right: 2px #aaaaaa solid;
+  margin: 20px;
+}
 .detail-deskripsi {
   display: flex;
   padding: 10px;
@@ -114,7 +121,20 @@ body {
   margin-bottom: 5px; /* Memberikan margin bawah agar tidak terlalu dekat */
   width: 100%; /* Mengisi lebar kontainer yang tersedia */
 }
+textarea {
+  width: 100%; /* Lebar 100% dari parent */
+  max-width: 100%; /* Lebar maksimum 100% dari parent */
+  height: 100px; /* Tinggi textarea, bisa disesuaikan sesuai kebutuhan */
+  resize: vertical; /* Memungkinkan pengguna untuk meresize hanya secara vertikal */
+  box-sizing: border-box; /* Memastikan lebar dan tinggi mencakup padding dan border */
+}
+.button-container {
+  margin-top: 20px;
+}
 @media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
   .card-search-button {
     display: flex;
     flex-direction: column;
@@ -124,5 +144,16 @@ body {
   }
   .btn-tambah-alamat {
     margin-top: 20px; /* Atur jarak antara search bar dan tombol tambah alamat */
+  }
+  .pembungkus {
+    border-right: none;
+  }
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .button-container {
+    width: 100%;
+    margin-top: 10px; /* Sesuaikan dengan jarak yang diinginkan */
   }
 }
