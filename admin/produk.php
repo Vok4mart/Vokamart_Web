@@ -8,7 +8,7 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $data_produk[] = $row; // Fix the array name here
     }
-    session_start();
+ session_start();
 ?>
 
 
