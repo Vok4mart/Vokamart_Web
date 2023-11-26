@@ -6,6 +6,12 @@ $data_akun = array(); // Ganti $data_produk menjadi $data_akun
 
 while ($row = mysqli_fetch_assoc($result)) {
     $data_akun[] = $row;
+
+}
+
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php"); // Ganti login.php dengan halaman login Anda
+  exit();
 }
 
 session_start();
@@ -85,7 +91,7 @@ session_start();
                     <p><?php echo $akun['username']; ?></p>
                 </div>
                 <div class="inputBox">
-                    <span>Alamat <a href="tambahalamat.php">Ubah</a></span>
+                    <span>Alamat <a href="../admin/tambahalamat.php">Ubah</a></span>
                     <p><?php echo $akun['alamat_lengkap']; ?></p>
                 </div>
                 <div class="inputBox">
