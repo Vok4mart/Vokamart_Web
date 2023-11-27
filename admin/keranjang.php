@@ -2,6 +2,12 @@
 require('../Koneksi/koneksi.php');
 
 
+
+$data_produk = [
+  ['gbr_produk' => '1.jpeg'],
+  // Data lainnya...
+];
+foreach ($data_produk as $produk) :
 ?>
 
 
@@ -90,6 +96,7 @@ require('../Koneksi/koneksi.php');
             <a href="#"><i class="bi bi-dash"></i></a>
             <a href="#"><i class="bi bi-trash mx-2"></i></a>
           </div>
+          <?php endforeach; ?>
         </div>
       </div>
       <!-- akhir card keranjang 1 -->   
