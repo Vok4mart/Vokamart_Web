@@ -218,16 +218,39 @@
   <div class="row flex-column-reverse flex-md-row">
     <!-- atur jumlah -->
     <div class="col-md-5 left-card-jumlah">
-      <div class="row title-deskripsi" style="padding: 0 0 2vh 0" > 
-        <div class="col text-jumlah">Atur Jumlah: </div>
-      </div>
-      <div class="row">
-        <div class="col d-flex">
-            <a href="#"><i class="bi bi-plus"></i></a>
-            <span class="angka-keranjang text-center" >1</span>
-            <a href="#"><i class="bi bi-dash"></i></a>
-            <a href="#"><i class="bi bi-trash mx-2"></i></a>
+        <div class="row title-deskripsi" style="padding: 0 0 2vh 0">
+            <div class="col text-jumlah">Atur Jumlah: </div>
         </div>
+        <div class="row">
+            <div class="col d-flex">
+                <a href="#" onclick="tambahJumlah()"><i class="bi bi-plus"></i></a>
+                <span id="jumlah" class="angka-keranjang text-center">1</span>
+                <a href="#" onclick="kurangiJumlah()"><i class="bi bi-dash"></i></a>
+            </div>
+            <script>
+    var jumlah = 1; // Inisialisasi jumlah
+    var stok = <?php echo $row['jumlah_produk'] ?>; // Ganti dengan jumlah stok yang sebenarnya
+
+    function tambahJumlah() {
+        if (jumlah < stok) {
+            jumlah++;
+            updateJumlah();
+        } else {
+            alert('Stok tidak mencukupi');
+        }
+    }
+
+    function kurangiJumlah() {
+        if (jumlah > 1) {
+            jumlah--;
+            updateJumlah();
+        }
+    }
+
+    function updateJumlah() {
+        document.getElementById('jumlah').innerText = jumlah;
+    }
+</script>
         <div class="col d-flex">
           <p>warna,</p>
           <p>ukuran</p>
@@ -244,11 +267,11 @@
       <div class="row ">
       
                         <div class="col btn-masukan-keranjang"  >
-                            <input type="submit" value="Masukkan Keranjang" name="">
+                            <a value="Masukkan Keranjang" href="keranjang.php?id=<?php echo $row['id_produk'] ?>" name="">
                         </div>
                         <!-- button beli Sekarang -->
                         <div class="col  btn-beli-sekarang" >
-                            <input type="submit" class="btn btn-outline-danger px-5 rounded-3" value="Beli Sekarang" name="">
+                            <a type="submit" class="btn btn-outline-danger px-5 rounded-3" value="Beli Sekarang"href="checkout.php?id=<?php echo $row['id_produk'] ?>  name="">
                         </div>
                         <!-- akhir button profil -->
                     

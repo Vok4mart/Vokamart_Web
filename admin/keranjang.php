@@ -1,13 +1,20 @@
 <?php
 require('../Koneksi/koneksi.php');
+$id_produk = $_GET['id'];
 
+// Misalnya, ambil data produk dari database berdasarkan $id_produk
+// Sesuaikan dengan struktur tabel dan kolom di database Anda
+$query = "SELECT * FROM produk WHERE id_produk = $id_produk";
+$result = mysqli_query($koneksi, $query);
 
+// Ambil data produk sebagai array asosiatif
+$data_produk = mysqli_fetch_assoc($result);
 
-$data_produk = [
-  ['gbr_produk' => '1.jpeg'],
-  // Data lainnya...
-];
-foreach ($data_produk as $produk) :
+// Jika data produk tidak ditemukan, Anda dapat menangani error atau redirect ke halaman lain
+if (!$data_produk) {
+    // Lakukan sesuatu, misalnya tampilkan pesan error atau redirect
+    die("Produk tidak ditemukan");
+}
 ?>
 
 
@@ -72,31 +79,31 @@ foreach ($data_produk as $produk) :
 
 
 <div class="card mt-5">
-  <div class="row">
-    <!-- sisi kanan card belanja -->
-    <div class="col-md-7 cart">
+    <div class="row">
+        <div class="col-md-7 cart">
+            <div class="col vertical-line"></div>
 
-    <div class="col vertical-line" ></div>
-     
-      <!-- card keranjang 1 --> 
-      <div class="form-check form-check-inline d-flex align-items-center ">
-        <input class="form-check-input rounded-circle mb-3" type="checkbox" id="inlineCheckbox1" value="option1">
-      
-        <div class="row main align-items-center card1 mx-2 ">
-          <div class="col-md-2 col-auto  mx-2">
-            <img class="img-rounded" src="../images/1.jpeg">
-          </div>
-          <div class="col">
-            <div class="row mb-2 text-produk"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, rerum deserunt eum earum voluptas obcaecati.</div>
-            <div class="row text-muted harga-produk">150.000</div>
-          </div>
-          <div class="col d-flex align-items-end justify-content-end">
-            <a href="#"><i class="bi bi-plus"></i></a>
-            <span class="angka-keranjang " >1</span>
-            <a href="#"><i class="bi bi-dash"></i></a>
-            <a href="#"><i class="bi bi-trash mx-2"></i></a>
-          </div>
-          <?php endforeach; ?>
+            <div class="form-check form-check-inline d-flex align-items-center">
+                <input class="form-check-input rounded-circle mb-3" type="checkbox" id="inlineCheckbox1" value="option1">
+            
+                <div class="row main align-items-center card1 mx-2">
+                    <div class="col-md-2 col-auto mx-2">
+                        <!-- Tampilkan gambar produk dari database -->
+                        <img class="img-rounded" src="../images/<?php echo $data_produk['gbr_produk']; ?>" alt="Produk">
+                    </div>
+                    <div class="col">
+                        <div class="row mb-2 text-produk"><?php echo $data_produk['deskripsi_produk']; ?></div>
+                        <div class="row text-muted harga-produk"><?php echo $data_produk['Harga_produk']; ?></div>
+                    </div>
+                    <div class="col d-flex align-items-end justify-content-end">
+                        <a href="#"><i class="bi bi-plus"></i></a>
+                        <span class="angka-keranjang" >1</span>
+                        <a href="#"><i class="bi bi-dash"></i></a>
+                        <a href="#"><i class="bi bi-trash mx-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
       </div>
       <!-- akhir card keranjang 1 -->   
