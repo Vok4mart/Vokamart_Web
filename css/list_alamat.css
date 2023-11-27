@@ -1,0 +1,42 @@
+body {
+  font-family: "Lexend", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+/* Menghapus border pada card */
+.container {
+  padding: 60px;
+}
+.card-search-button {
+  margin-bottom: 10px;
+}
+.card {
+  border: none;
+}
+.card .card-border {
+  border: 1px #aaaaaa solid;
+  border-radius: 14px;
+}
+.card-body .form-search button {
+  grid-area: search;
+  border: 1px #aaaaaa solid;
+  border-radius: 10px 0 0 10px;
+  padding: 0px 10px;
+  outline: none;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #ee5151;
+}
+
+@media (max-width: 768px) {
+  .card-search-button {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-search {
+    width: 100%;
+  }
+  .btn-tambah-alamat {
+    margin-top: 20px; /* Atur jarak antara search bar dan tombol tambah alamat */
+  }
+}

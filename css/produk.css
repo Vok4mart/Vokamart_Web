@@ -2,16 +2,24 @@ body {
   height: 1000vh;
   font-family: "Lexend", sans-serif;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* akhir search button */
 .container {
   display: grid;
-  grid-gap: 10px;
+
   grid-template-areas:
     "satu satu satu"
     "dua tiga empat"
-    "dua lima lima";
+    "dua lima lima"
+    "wadah wadah wadah"
+    "wadah2 wadah2 wadah2"
+    "wadah3 wadah3 wadah3";
   grid-template-columns: 0.47fr 0.2fr 0.2fr;
   grid-template-rows: 1fr 0.4fr 0.4fr;
 }
@@ -122,11 +130,19 @@ ul {
   background: #ff0000;
 }
 #konten {
-  padding-left: 150px;
-  padding-right: 150px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wadah1 {
+  grid-area: wadah;
+}
+.wadah2 {
+  grid-area: wadah2;
+}
+.wadah3 {
+  grid-area: wadah3;
 }
 h2 {
-  padding-left: 150px;
   margin-bottom: 2rem;
   font-weight: bolder;
   font-size: medium;
@@ -196,71 +212,8 @@ h2 {
     grid-template-columns: 0.47fr 0.2fr 0.4fr;
   }
 }
-
-/* .containerdua {
-  max-width: 1400px;
-  margin-top: 0px;
-  margin-left: 60px;
-  margin-right: 10px;
-  padding: 15px 15px 15px 15px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+@media (max-width: 565px) {
+  .card {
+    width: 12rem;
+  }
 }
-hr {
-  margin-top: 100px;
-  margin-left: 50px;
-  margin-right: 10px;
-}
-h2 {
-  margin-left: 8px;
-  margin-bottom: 10px;
-}
-.card-text {
-  color: #aaaaaa;
-}
-
-.containertiga {
-  max-width: 1400px;
-  margin-top: 0px;
-  margin-left: 60px;
-  margin-right: 10px;
-  padding: 15px 15px 15px 15px;
-  /* margin: 0px 138px;S
-  padding: 15px 15px 15px 15px; 
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.containerempat {
-  max-width: 1400px;
-  margin-top: 0px;
-  margin-left: 60px;
-  margin-right: 10px;
-  padding: 15px 15px 15px 15px;
-  margin: 0px 138px;S
-  padding: 15px 15px 15px 15px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-} */
-
-/* .katagori {
-  grid-area: katagori;
-  background-color: #1c41ba;
-  margin: 10px;
-}
-h5 {
-  grid-area: h5;
-  margin: 10px;
-} */
-/* .coba {
-  display: grid;
-  grid-template-rows: 30px auto;
-  grid-template-columns: 120px;
-  /* grid-auto-flow: column;
-  grid-auto-columns: 50px; */
-/* background-color: violet; */

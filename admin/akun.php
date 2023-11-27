@@ -28,7 +28,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&family=Poppins:ital,wght@0,100;0,300;0,500;0,900;1,100&display=swap" rel="stylesheet">
     <!-- styleku -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/akun.css">
 </head>
 <body>
 
@@ -56,7 +56,7 @@ session_start();
           <a class="nav-link" href="akun.php">Akun</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Keranjang</a>
+          <a class="nav-link" href="keranjang.php">Keranjang</a>
         </li>
       </ul>
     </div>
@@ -122,7 +122,7 @@ session_start();
                                         <label type="email" for="recipient-name" class="col-form-label">Email</label>
                                         <div class=" d-flex" >
                                         <input type="text" class="form-control" id="recipient-name">
-                                        <button type="button" class="btn btn-outline-danger">Ubah Password</button>
+                                        <a href="lupapassword.php"><button type="button" class="btn btn-outline-danger">Ubah Password</button></a>
                                         </div>
                                         <?php endforeach; ?>
                                       </div>
