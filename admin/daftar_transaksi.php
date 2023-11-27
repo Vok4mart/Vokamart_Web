@@ -1,3 +1,10 @@
+<?php
+require('../Koneksi/koneksi.php');
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
