@@ -1,0 +1,4 @@
+.gambar {
+  display: flex;
+  justify-content: center; /* Menengahkan horizontal */
+}
