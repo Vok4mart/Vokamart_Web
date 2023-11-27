@@ -1,11 +1,13 @@
+
+
 <?php
-require('../Koneksi/koneksi.php');
+  require('../Koneksi/koneksi.php');
+  $id_produk = $_GET['id'];
+  $query = "select * from produk join kategori_produk on produk.id_kategori = kategori_produk.id_kategori where id_produk='$id_produk'";
+  $result = mysqli_query($koneksi, $query);
 
-
+  
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -111,13 +113,17 @@ require('../Koneksi/koneksi.php');
     <!-- sisi kanan card deskripsi -->
     <div class="col-md-6 right-card-deskripsi">
       <!-- card  -->
+      <?php
+        foreach($result as $row){
+      ?>
+      
       <div class="border-box">
         <div class="title">
           <div class="row title-deskripsi"> 
-           <div class="col"> KIT LEGO MOBIL JEEP</div>
+           <div class="col"> <?php echo $row['Nama_produk'] ?></div>
           </div>
           <div class="row title-deskripsi-harga" > 
-            <div class="col"> Rp6.000.000</div>
+            <div class="col"> <?php echo $row['Harga_produk'] ?></div>
           </div>
         </div>
 
@@ -188,16 +194,20 @@ require('../Koneksi/koneksi.php');
            <div class="col"> Deskripsi</div>
           </div>
           <div class="row deskripsi-produk"  > 
-            <div class="col"><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vero sed qui?</p></div> 
+            <div class="col"><p> <?php echo $row['deskripsi_produk'] ?></p></div> 
           </div>
           <div class="row deskripsi-judul-produk" style="padding: 1vh 0 0 0" > 
            <div class="col"> Kategori Produk</div>
+            <p> <?php echo $row['nama_kategori'] ?></p>
           </div>
         </div>
 
         
         <!-- akhir card total belanja -->
       </div>
+      <?php
+        }
+      ?>
     </div>
 
   </div> 
@@ -225,7 +235,7 @@ require('../Koneksi/koneksi.php');
       </div>
       <div class="row d-flex">
         <div class="col d-flex">
-           <p>stok :  <p> 10</p></p>
+           <p>stok :  <p><?php echo $row['jumlah_produk'] ?></p></p>
         </div>
         <div class="col ">
           <p>subtotal: -</p>
