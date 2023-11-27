@@ -105,7 +105,6 @@
             <div class="ct1">Kategori Produk</div>
             <!-- scrollbar Kategori -->
             <div class="scrollbar-ct">
-              
                 <div class="kotak">
                     <div class="ct3"></div>
                     <div class="ct-text">Makanan</div>
@@ -149,8 +148,6 @@
             </div> 
              <!-- akhir scrollbar Kategori -->
         </div>
-    
-
 
         <!-- card produk terlaris  -->
         <div class="wadah ">
@@ -193,7 +190,6 @@
                                             <p class="card-text mb-0">Harga</p>
                                             <p class="card-title"><?php echo $produk['Harga_produk']; ?></p>
                                         </div>
-                                        <a class="btn btn-danger ms-auto" href="detail_produk.php?id=">
                                             <i class="bi bi-bag-fill"></i>
                                         </a>
                                     </div>
