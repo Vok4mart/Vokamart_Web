@@ -1,0 +1,16 @@
+body {
+  font-family: "Lexend", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.contact-info .address {
+  padding-left: 20px;
+}
+.contact-info .email {
+  padding-left: 20px;
+}
+.contact-info .handphone {
+  padding-left: 20px;
+}
+.address {
+  margin-bottom: 10px;
+}
