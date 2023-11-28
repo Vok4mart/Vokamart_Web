@@ -1,4 +1,59 @@
+body {
+  font-family: "Lexend", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
 .gambar {
   display: flex;
   justify-content: center; /* Menengahkan horizontal */
+}
+.container {
+  margin-top: 20px;
+}
+
+.about-welcome {
+  color: black;
+  font-size: 20px;
+  font-family: Lexend;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+h2 {
+  display: inline-block;
+  text-align: center;
+  border-bottom: 5px #e3e3e3 solid;
+}
+.about-welcome-v {
+  color: #0d0d0d;
+  font-size: 40px;
+  font-family: Lexend;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.about-welcome-m {
+  font-size: 40px;
+  font-family: Lexend;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.about-welcome-merah {
+  color: #e93d3d;
+}
+.about-text-gambar {
+  background-color: #e93d3d;
+  border-radius: 9px;
+}
+.about-text {
+  margin: 30px 30px;
+}
+.row {
+  margin-top: 20px;
+}
+.img-area {
+  background-color: aqua;
+  margin: 20px 0;
+  border-radius: 5px;
+  width: 100%;
+}
+.img-area img {
+  border-radius: 5px;
 }
