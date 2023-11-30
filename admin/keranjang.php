@@ -1,9 +1,11 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require('../Koneksi/koneksi.php');
 $id_produk = $_GET['id'];
 
-// Misalnya, ambil data produk dari database berdasarkan $id_produk
-// Sesuaikan dengan struktur tabel dan kolom di database Anda
+// Ambil data produk dari database berdasarkan $id_produk
 $query = "SELECT * FROM produk WHERE id_produk = $id_produk";
 $result = mysqli_query($koneksi, $query);
 
@@ -15,6 +17,15 @@ if (!$data_produk) {
     // Lakukan sesuatu, misalnya tampilkan pesan error atau redirect
     die("Produk tidak ditemukan");
 }
+
+// Ambil stok produk dari hasil query
+$stok_produk = $data_produk['stok_produk'];
+
+// Ambil jumlah dari sesi atau default ke 1
+$jumlah = isset($_SESSION["keranjang"][$id_produk]) ? $_SESSION["keranjang"][$id_produk] : 1;
+
+// Hitung total barang dalam keranjang
+$produk_dalam_keranjang = isset($_SESSION['keranjang']) ? count($_SESSION['keranjang']) : 0;
 ?>
 
 
@@ -85,7 +96,7 @@ if (!$data_produk) {
 
             <div class="form-check form-check-inline d-flex align-items-center">
                 <input class="form-check-input rounded-circle mb-3" type="checkbox" id="inlineCheckbox1" value="option1">
-            
+
                 <div class="row main align-items-center card1 mx-2">
                     <div class="col-md-2 col-auto mx-2">
                         <!-- Tampilkan gambar produk dari database -->
@@ -96,41 +107,45 @@ if (!$data_produk) {
                         <div class="row text-muted harga-produk"><?php echo $data_produk['Harga_produk']; ?></div>
                     </div>
                     <div class="col d-flex align-items-end justify-content-end">
-                        <a href="#"><i class="bi bi-plus"></i></a>
-                        <span class="angka-keranjang" >1</span>
-                        <a href="#"><i class="bi bi-dash"></i></a>
-                        <a href="#"><i class="bi bi-trash mx-2"></i></a>
+                        <a href="#" onclick="tambahJumlah('<?php echo $data_produk['id_produk']; ?>')">
+                            <i class="bi bi-plus"></i>
+                        </a>
+                        <input type="number" name="jumlah" class="angka-keranjang text-center" value="<?php echo $jumlah; ?>" min="1" max="<?php echo $stok_produk; ?>">
+                        <a href="#" onclick="kurangJumlah('<?php echo $data_produk['id_produk']; ?>')">
+                            <i class="bi bi-dash"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-      </div>
+    </div>
+</div>
       <!-- akhir card keranjang 1 -->   
     </div>
 
 
     <!-- sisi kiri card total belanja -->
-    <div class="col-md-5 belanja">
-      <!-- card total belanja -->
-      <div class="border-box">
-        <div class="row text-rb" style="padding: 0 0 2vh 0" > Ringkasan Belanja </div>
-        <div class="row" style="padding: 0 0 2vh 0" > 
-          <div class="col text-tb">Total Barang:</div>
-          <div class="col text-right harga-barang" id="price">137.000</div>
-        </div>
-                   
-        <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0 0 0;">
-          <div class="col text-tbel">Total Belanja: </div>
-          <div class="col text-right harga-total" id="price2" > 137.00</div>
-        </div>
-        <button class="btn btn-danger">CHECKOUT</button>
-      </div>
-      <!-- akhir card total belanja -->
-    </div>
+          <div class="col-md-5 belanja ms-auto">
+              <!-- card total belanja -->
+              <div class="border-box">
+                  <div class="row text-rb">Ringkasan Belanja</div>
+                  <div class="row">
+                      <div class="col text-tb">Total Barang:</div>
+                      <div class="col text-right harga-barang" id="total_produk"><?php echo $produk_dalam_keranjang; ?></div>
+                  </div>
+                  <div class="row border-top pt-2">
+                      <div class="col text-tbel">Total Belanja:</div>
+                      <!-- Update nilai "price2" sesuai dengan kebutuhan Anda -->
+                      <div class="col text-right harga-total" id="price2"><?php echo $produk_dalam_keranjang * $data_produk['Harga_produk']; ?></div>
+                  </div>
+                  <form action="checkout.php" method="post">
+                  <input type="hidden" name="keranjang_data" value="<?php echo htmlspecialchars(json_encode($keranjang_data)); ?>">
+                  <button type="submit" class="btn btn-danger">CHECKOUT</button>
 
-  </div>            
-</div>
+              </div>
+          </div>
+          </div>
+          </div>
 
 
 

@@ -6,36 +6,21 @@
   border-radius: 1rem;
   border: transparent;
 }
-#price::before {
-  content: "Rp. ";
-  color: #aaaaaa;
-  font-size: 15;
-  font-family: Lexend;
-  font-weight: 400;
-  word-wrap: break-word;
+.form-check-input:checked + .card1 {
+  border-color: #007bff; /* Ganti dengan warna yang Anda inginkan */
+  /* Atau gunakan properti lain seperti color, dll. */
 }
-#price2::before {
-  content: "Rp. ";
-  color: black;
-  font-size: 15px;
-  font-family: Lexend;
-  font-weight: 700;
-  word-wrap: break-word;
-}
-.harga-produk::before {
-  content: "Rp. ";
-}
-.belanja {
-  background-color: #fff;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  padding: 4vh 5vh;
-  color: rgb(65, 65, 65);
-}
-.border-box {
+.form-check-input {
   border: 2px #aaaaaa solid;
-  padding: 10px;
-  border-radius: 20px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.vertical-line {
+  border-left: 3px solid#ADADAD; /* Warna dan ketebalan garis */
+  position: absolute;
+  height: 100%; /* Garis akan mengisi tinggi elemen di mana ia ditempatkan */
+  left: 57%; /* Anda dapat menyesuaikan posisinya jika diperlukan */
+  /* Ini akan mengatur posisi di tengah elemen yang lebih besar */
 }
 .card1 {
   border: 2px #aaaaaa solid;
@@ -61,7 +46,6 @@
 .cart::-webkit-scrollbar {
   width: 0;
 }
-
 .text-produk {
   overflow: hidden;
   display: -webkit-box;
@@ -84,6 +68,41 @@
   padding: 1px 20px;
   font-size: 15px;
 }
+#price::before {
+  content: "Rp. ";
+  color: #aaaaaa;
+  font-size: 15;
+  font-family: Lexend;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+#price2::before {
+  content: "Rp. ";
+  color: black;
+  font-size: 15px;
+  font-family: Lexend;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.harga-produk::before {
+  content: "Rp. ";
+}
+
+.belanja {
+  background-color: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh 5vh;
+  color: rgb(65, 65, 65);
+}
+.border-box {
+  border: 2px #aaaaaa solid;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
 .text-rb {
   color: black;
   font-size: 17px;
@@ -119,22 +138,7 @@
   font-weight: 700;
   word-wrap: break-word;
 }
-.form-check-input:checked + .card1 {
-  border-color: #007bff; /* Ganti dengan warna yang Anda inginkan */
-  /* Atau gunakan properti lain seperti color, dll. */
-}
-.form-check-input {
-  border: 2px #aaaaaa solid;
-  font-size: 20px;
-  margin-top: 10px;
-}
-.vertical-line {
-  border-left: 3px solid#ADADAD; /* Warna dan ketebalan garis */
-  position: absolute;
-  height: 100%; /* Garis akan mengisi tinggi elemen di mana ia ditempatkan */
-  left: 57%; /* Anda dapat menyesuaikan posisinya jika diperlukan */
-  /* Ini akan mengatur posisi di tengah elemen yang lebih besar */
-}
+
 @media (max-width: 767px) {
   .card {
     margin: 3vh auto;

@@ -1,8 +1,27 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require('../Koneksi/koneksi.php');
 
+// Periksa apakah data keranjang dikirimkan melalui POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['keranjang_data'])) {
+        // Ambil data keranjang dari input tersembunyi
+        $keranjang_data = json_decode($_POST['keranjang_data'], true);
 
+        // Sekarang $keranjang_data berisi data keranjang yang dapat Anda gunakan sesuai kebutuhan
+
+        // Contoh: Tampilkan data keranjang
+        echo '<pre>';
+        print_r($keranjang_data);
+        echo '</pre>';
+    }
+}
 ?>
+
+<!-- ... (Sisanya dari kode HTML Anda) -->
+
 
 <!DOCTYPE html>
 <html lang="en">
