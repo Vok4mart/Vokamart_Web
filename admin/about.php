@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg  mx-4">
 <div class="container-fluid">
     <a class="navbar-brand" href="home.php">
-      <img src="" alt="vokamart">
+      <img src="../images/logo_vokamart.png" alt="vokamart" style="max-width: 150px;" >
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -90,7 +90,7 @@
   <div class="row row-cols-1 row-cols-md-4 g-4">
    
   <div class="col">
-    <div class="card h-100" ">
+    <div class="card h-100" >
       <img src="../images/🦆 illustration _Online shopping_.png" class="card-img-top w-50 mx-auto mt-3 img-fluid" alt="...">
       <div class="card-body text-center" style="margin-top: 28px;" >
         <h5 class="card-title">ONLINE SHOP</h5>
