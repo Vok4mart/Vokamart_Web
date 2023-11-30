@@ -29,11 +29,11 @@ session_start();
 </head>
 <body>
  
-        <!-- navbar -->
-<nav class="navbar navbar-expand-lg  mx-4">
+ <!-- navbar -->
+ <nav class="navbar navbar-expand-lg  mx-4">
 <div class="container-fluid">
     <a class="navbar-brand" href="home.php">
-      <img src="" alt="vokamart">
+    <img src="../images/logo_vokamart.png" alt="vokamart" style="max-width: 150px;" >
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -44,10 +44,10 @@ session_start();
           <a class="nav-link" href="produk.php">Produk Kami</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="about.php">About</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="contact.php">Contact</a>
         </li>
         <li class="nav-item mx-4">
           <a class="nav-link" href="akun.php">Akun</a>
