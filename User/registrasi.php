@@ -1,6 +1,6 @@
 <?php
-require('../koneksi.php');
-require('navbar.php');
+require('../Koneksi/koneksi.php');
+
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
                 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
                 // Lakukan pendaftaran dengan prepared statement
-                $insert_query = "INSERT INTO users (email, username, password) VALUES (?, ?, ?)";
+                $insert_query = "INSERT INTO akun (email_akun, username, password) VALUES (?, ?, ?)";
                 $insert_stmt = mysqli_prepare($koneksi, $insert_query);
 
                 if ($insert_stmt) {
@@ -91,16 +91,16 @@ if (isset($_POST['submit'])) {
           <a class="nav-link" href="produk.php">Produk Kami</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="about.php">About</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="contact.php">Contact</a>
         </li>
         <li class="nav-item mx-4">
           <a class="nav-link" href="akun.php">Akun</a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="#">Keranjang</a>
+          <a class="nav-link" href="keranjang.php">Keranjang</a>
         </li>
       </ul>
     </div>
