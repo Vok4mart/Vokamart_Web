@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
   $email = $_POST['txt_email'];
   $pass = $_POST['txt_pass'];
   
+  
   // $emailCheck = mysqli_real_escape_string($koneksi, $email);
   // $passCheck = mysqli_real_escape_string($pass, $pass);
   if(!empty(trim($email)) && !empty(trim($pass))) {
