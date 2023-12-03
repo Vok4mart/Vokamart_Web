@@ -267,7 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="col text-tbel">Total Belanja: </div>
             <div class="col text-right harga-total" id="price2" > 137.00</div>
             </div>
-            <button class="btn btn-danger">CHECKOUT</button>
+            <button hreff=checkout-process-simple-version.php class="btn btn-danger">CHECKOUT</button>
    
         </div>
         <!-- akhir card total belanja -->

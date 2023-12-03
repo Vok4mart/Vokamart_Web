@@ -38,7 +38,8 @@ $customer_details = array(
     'last_name'     => "Litani",
     'email'         => "andri@litani.com",
     'phone'         => "081122334455",
-
+    'billing_address'  => $billing_address,
+    'shipping_address' => $shipping_address
 );
 // Fill transaction details
 $transaction = array(

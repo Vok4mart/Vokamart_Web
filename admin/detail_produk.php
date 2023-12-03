@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $_SESSION['keranjang'][$id_produk_dipilih] = true;
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,65 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </div>
             </div>
 
-            <div class="warna-ukuran">
-              <!-- pemilihan warna -->
-              <div class="row" style="padding: 2vh 3vh 2vh 0">
-                <div class="col text-warna-ukuran">Pilih Warna</div>
-                <div class="scroll-warna-row">
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                  <div class="scroll-warna-col ">
-                    <img src="#" width="100%" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- akhir pemilihan warna  -->
 
-            <!-- pemilihan ukuran -->
-            <div class="row" style="padding: 0 3vh 3vh 0">
-              <div class="col text-warna-ukuran">Pilih Ukuran</div>
-              <div class="scroll-warna-row">
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-                <div class="scroll-warna-col ">
-                  <img src="#" width="100%" alt="">
-                </div>
-              </div>
-            </div>
-            <!-- akhir pemilihan ukuran -->
 
 
             <!-- deskripsi produk -->
@@ -238,16 +179,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="row">
             <div class="col d-flex">
 
-              <input type="number" min="1"  class="angka-keranjang text-center" name="jumlah"></input>
+              <input type="number" min="1" class="angka-keranjang text-center" name="jumlah"></input>
 
             </div>
 
 
 
-            <div class="col d-flex">
-              <p>warna,</p>
-              <p>ukuran</p>
-            </div>
+
           </div>
           <div class="row d-flex">
             <div class="col d-flex">
@@ -262,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="row ">
 
             <div class="col btn-masukan-keranjang">
-              <button type="submit" name="jumlah" class="btn btn-primary">Masukkan Keranjang</button>
+              <button type="submit" name="submit" class="btn btn-primary">Masukkan Keranjang</button>
             </div>
 
             <!-- Button Beli Sekarang -->
@@ -333,15 +271,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
     </div>
-    <?php
-            if (isset($_POST["submit"])) {
-              $jumlah = $_POST["jumlah"];
-              $_SESSION["keranjang"][$id_produk] = $jumlah;
-            }
-            ?>
   </div>
 
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

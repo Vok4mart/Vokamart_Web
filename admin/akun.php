@@ -9,10 +9,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 }
 
-if (!isset($_SESSION['username'])) {
-  header("Location: login.php"); // Ganti login.php dengan halaman login Anda
-  exit();
-}
 
 session_start();
 ?>
